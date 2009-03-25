@@ -8,7 +8,7 @@ package :git, :provides => :scm do
     has_file '/usr/local/bin/git'
   end
 end
-
+# need to ensure that ubuntu sources.list contains source packages
 package :git_dependencies do
   description 'Git Build Dependencies'
   apt 'git-core', :dependencies_only => true
