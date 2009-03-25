@@ -1,12 +1,9 @@
 # Require our stack
-%w(essential apache scm ruby_enterprise mysql mailserver).each do |r|
+%w(essential apache scm ruby_enterprise mysql mailserver rails).each do |r|
   require File.join(File.dirname(__FILE__), 'stack', r)
 end
 
-# What we're installing to your server
-# Take what you want, leave what you don't
-# Build up your own and strip down your server until you get it right. 
-policy :passenger_stack, :roles => :app do
+policy :xeriom_rails, :roles => :app do
   requires :webserver               # Apache
 
   requires :apache_etag_support     # == Apache extras
@@ -19,8 +16,7 @@ policy :passenger_stack, :roles => :app do
   requires :ruby_database_driver    # mysql or postgres gems
   requires :scm                     # Git
   requires :mailserver
-  # requires :memcached               # Memcached
-  # requires :libmemcached            # Libmemcached
+  requires :rails
 end
 
 deployment do
