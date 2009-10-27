@@ -1,5 +1,5 @@
 # Require our stack
-%w(essential apache scm ruby_enterprise mysql mailserver rails).each do |r|
+%w(essential apache scm ruby_enterprise mysql mailserver rails typo3).each do |r|
   require File.join(File.dirname(__FILE__), 'stack', r)
 end
 
